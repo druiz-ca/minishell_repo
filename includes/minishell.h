@@ -6,7 +6,7 @@
 /*   By: druiz-ca <druiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 14:21:11 by sternero          #+#    #+#             */
-/*   Updated: 2024/11/01 12:21:21 by druiz-ca         ###   ########.fr       */
+/*   Updated: 2024/11/01 13:00:17 by druiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # include <termios.h>                      // Terminal I/O interface
 # include <unistd.h>                       // Symbolic constants and types
 # include <stddef.h>                       // Standard definitions
-#include <sys/stat.h>
+# include <sys/stat.h>
 
 // -------------------------- Includes own ---------------------------------- //
 

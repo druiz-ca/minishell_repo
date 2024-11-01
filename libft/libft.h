@@ -6,7 +6,7 @@
 /*   By: druiz-ca <druiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 14:06:30 by sternero          #+#    #+#             */
-/*   Updated: 2024/10/27 14:25:08 by druiz-ca         ###   ########.fr       */
+/*   Updated: 2024/11/01 12:53:23 by druiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ int		ft_isascii(int c);
 	The value of the argument must be representable as an unsigned char or 
 	the value of EOF.*/
 int		ft_isprint(int c);
+
+int	ft_isdigit_str(char *str);
 
 /*The strlen() function computes the length of the string s.*/
 size_t	ft_strlen(const char *str);
