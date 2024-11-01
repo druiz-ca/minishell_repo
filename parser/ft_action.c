@@ -6,7 +6,7 @@
 /*   By: druiz-ca <druiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 15:22:38 by sternero          #+#    #+#             */
-/*   Updated: 2024/10/27 13:58:40 by druiz-ca         ###   ########.fr       */
+/*   Updated: 2024/11/01 12:46:05 by druiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ char    *ft_break_down(char *str, int *i)
 		return (ft_break_down(str, i));
 }
 
-void    ft_parse_input(t_minishell *minishell)
+/* void    ft_parse_input(t_minishell *minishell)
 {
 	minishell->full_cmd = ft_shell_split(minishell->prompt);
 	if (minishell->prompt[ft_strlen(minishell->prompt) - 1] == ' ')
 		minishell->full_cmd = ft_remove_last(minishell->full_cmd);
 	ft_env_var(minishell, minishell->env);
-}
+} */
 
 void    ft_action_parse(t_minishell *minishell, char *line)
 {

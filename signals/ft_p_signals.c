@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_p_signals.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sternero <sternero@student.42malaga.com>   #+#  +:+       +#+        */
+/*   By: druiz-ca <druiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-10-18 12:58:41 by sternero          #+#    #+#             */
-/*   Updated: 2024-10-18 12:58:41 by sternero         ###   ########.fr       */
+/*   Created: 2024/10/18 12:58:41 by sternero          #+#    #+#             */
+/*   Updated: 2024/11/01 13:33:48 by druiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ void	ft_signals_parent(void)
 	ft_signal_ctrl_backslash();
 }
 
-void    ft_handle_sigquit(int sig)
+/* void    ft_handle_sigquit(int sig)
 {
     (void)sig;
-}
+} */
 
 void    ft_signal_ctrl_backslash(void)
 {

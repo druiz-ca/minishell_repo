@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_signals.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sternero <sternero@student.42malaga.com>   #+#  +:+       +#+        */
+/*   By: druiz-ca <druiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-10-16 16:25:52 by sternero          #+#    #+#             */
-/*   Updated: 2024-10-16 16:25:52 by sternero         ###   ########.fr       */
+/*   Created: 2024/10/16 16:25:52 by sternero          #+#    #+#             */
+/*   Updated: 2024/11/01 12:47:27 by druiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
     establecer la acción para la señal SIGINT. En resumen: esta función se
     encarga de manejar la señal SIGINT (Ctrl+C) en el proceso padre. */
 
-void	ft_signal_ctrl_c_parent(void)
+/* void	ft_signal_ctrl_c_parent(void)
 {
 	struct sigaction	ctrl_c;
 
@@ -28,7 +28,7 @@ void	ft_signal_ctrl_c_parent(void)
 	ctrl_c.sa_flags = SA_RESTART;
 	sigemptyset(&ctrl_c.sa_mask);
 	sigaction(SIGINT, &ctrl_c, NULL);
-}
+} */
 
 /* La función handle_sigint_parent() maneja la señal SIGINT (Ctrl+C) en el
     proceso padre. Si la señal recibida es SIGINT, se escribe "^C\n" en la
@@ -36,7 +36,7 @@ void	ft_signal_ctrl_c_parent(void)
     cursor en una nueva línea y se llama a la función rl_replace_line() para
     reemplazar la línea actual con una cadena vacía. */
 
-void	ft_handle_sigint_parent(int sig_num)
+/* void	ft_handle_sigint_parent(int sig_num)
 {
 	if (sig_num == SIGINT)
 	{
@@ -44,7 +44,7 @@ void	ft_handle_sigint_parent(int sig_num)
 		rl_on_new_line();
 		rl_replace_line("", 0);
 	}
-}
+} */
 
 /* La función signals_parent() llama a las funciones signal_ctrl_c_parent() y
     signal_ctrl_backslash() para manejar las señales SIGINT (Ctrl+C) y SIGQUIT
@@ -53,11 +53,11 @@ void	ft_handle_sigint_parent(int sig_num)
     SIGINT (Ctrl+C) y signal_ctrl_backslash() maneja la señal SIGQUIT (Ctrl+\).
 */
 
-void	ft_signals_parent(void)
+/* void	ft_signals_parent(void)
 {
 	ft_signal_ctrl_c_parent();
 	ft_signal_ctrl_backslash();
-}
+} */
 
 /* The signal_ctrl_c_parent() function initializes the ctrl_c sigaction structure
     by assigning the handle_sigint_parent handler to it, setting the SA_RESTART
