@@ -6,7 +6,7 @@
 /*   By: druiz-ca <druiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 15:22:38 by sternero          #+#    #+#             */
-/*   Updated: 2024/11/01 14:26:08 by druiz-ca         ###   ########.fr       */
+/*   Updated: 2024/11/01 14:54:55 by druiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,37 @@ void    ft_spc_remove_plus(char **vector, char *spaces)
 	vector[ft_vector_len(vector) - 1] = tmp;
 }
 
-int main(void)
+int		main(int argc, char *arbv[])
 {
 	t_minishell minishell;
-	char *line;
 
-	line = "ls -l";
-	ft_action_parse(&minishell, line);
+	minishell.prompt = NULL;
+	minishell.full_cmd = NULL;
+	minishell.split_cmd = NULL;
+	minishell.error_parse = 0;
+	minishell.env = NULL;
+	minishell.env = ft_copy_mtx(arbv);
+
+	if (argc == 1)
+	{
+		while (1)
+		{
+			minishell.prompt = readline("minishell$ ");
+			if (!minishell.prompt)
+				break ;
+			if (ft_strlen(minishell.prompt) > 0)
+			{
+				add_history(minishell.prompt);
+				ft_action_parse(&minishell, minishell.prompt);
+			}
+			free(minishell.prompt);
+		}
+	}
+	else
+	{
+		ft_action_parse(&minishell, arbv[1]);
+	}
+	ft_free_vector(minishell.env);
 	return (0);
 }
 
