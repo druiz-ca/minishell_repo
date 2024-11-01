@@ -105,7 +105,7 @@ $(NAME): clean_screen $(OBJS)
 # The @ symbol is used to hide the command from the terminal.	
 	@${MAKE} -C ${LIBFT_DIR}
 	@${MAKE} -C ${FT_PRINTF_DIR}
-	@${CC} ${CFLAGS} -o ${NAME} ${OBJS} -L${LIBFT_DIR} -lft -L${FT_PRINTF_DIR} -lftprintf -I${INCLUDES}
+	@${CC} ${CFLAGS} -o ${NAME} ${OBJS} -L${LIBFT_DIR} -lft -L${FT_PRINTF_DIR} -lftprintf -I${INCLUDES} -lreadline
 
 # To compile the project:
 # ${CC} command is used to compile the project.

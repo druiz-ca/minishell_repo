@@ -6,7 +6,7 @@
 /*   By: druiz-ca <druiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 15:22:38 by sternero          #+#    #+#             */
-/*   Updated: 2024/11/01 12:46:05 by druiz-ca         ###   ########.fr       */
+/*   Updated: 2024/11/01 14:26:08 by druiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,16 @@ void    ft_spc_remove_plus(char **vector, char *spaces)
 	tmp = ft_strjoin(vector[ft_vector_len(vector) - 1], spaces);
 	free(vector[ft_vector_len(vector) - 1]);
 	vector[ft_vector_len(vector) - 1] = tmp;
+}
+
+int main(void)
+{
+	t_minishell minishell;
+	char *line;
+
+	line = "ls -l";
+	ft_action_parse(&minishell, line);
+	return (0);
 }
 
 /* The ft_break_down() function breaks down the command into tokens. It takes
