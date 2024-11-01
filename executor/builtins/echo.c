@@ -6,7 +6,7 @@
 /*   By: druiz-ca <druiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 19:15:57 by druiz-ca          #+#    #+#             */
-/*   Updated: 2024/10/26 13:46:17 by druiz-ca         ###   ########.fr       */
+/*   Updated: 2024/11/01 13:06:35 by druiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /* Imprime en stdout los argumentos que recibe */
 
-void echo(char **args, t_minishell *shell)
+void ft_echo(char **args, t_minishell *shell)
 {
     int i;
     int j;

@@ -6,7 +6,7 @@
 /*   By: druiz-ca <druiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 18:04:05 by druiz-ca          #+#    #+#             */
-/*   Updated: 2024/11/01 12:13:21 by druiz-ca         ###   ########.fr       */
+/*   Updated: 2024/11/01 13:07:11 by druiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void    reset_old_pwd_and_lastcmd(t_minishell *shell, t_cmd **commands)
 }
 
 /* Comprueba si el comando es un builtin o un comando del sistema  (bin)*/
-void    check_if_bultin(t_cmd **commands, t_minishell *shell, int i)
+void    check_if_builtin(t_cmd **commands, t_minishell *shell, int i)
 {
     shell->g_status = 0;
     if (commands[i]->cmd && check_if_is_builtin(commands[i]->cmd) == 1)

@@ -13,7 +13,7 @@
 #include "../../includes/minishell.h"
 
 /* Imprime el directorio de trabajo actual */
-void pwd(t_minishell *shell)
+void ft_pwd(t_minishell *shell)
 {
     char cwd[PATH_MAX];
 
