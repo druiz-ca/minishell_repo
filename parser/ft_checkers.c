@@ -6,7 +6,7 @@
 /*   By: druiz-ca <druiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 15:42:43 by sternero          #+#    #+#             */
-/*   Updated: 2024/11/02 11:19:36 by druiz-ca         ###   ########.fr       */
+/*   Updated: 2024/11/03 14:05:26 by druiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,19 @@
 
 int     ft_check_cmd(t_minishell *minishell)
 {
-    printf("ft_check_cmd\n");
     int     i;
     int     j;
 
     i = 0;
     j = NO_QUOTE;
+    printf("ft_check_cmd  %s\n", minishell->prompt);
+    
+    if (minishell->prompt == NULL) 
+    {
+        fprintf(stderr, "Error: minishell or minishell->prompt is NULL\n");
+        return 0;
+    }
+    
     while (minishell->prompt[i])
     {
         if (minishell->prompt[i] == '\"' ||  minishell->prompt[i] == '\'')  

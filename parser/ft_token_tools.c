@@ -6,7 +6,7 @@
 /*   By: druiz-ca <druiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 11:50:44 by sternero          #+#    #+#             */
-/*   Updated: 2024/11/02 13:31:19 by druiz-ca         ###   ########.fr       */
+/*   Updated: 2024/11/03 14:37:43 by druiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void	ft_do_command(char **str, t_var **list_var, char *status)
 
 t_var	**ft_init_env(char **env)
 {
+	printf("ft_init_env\n");
 	t_var	**list_var;
 	int		i;
 	char	*name;
@@ -109,11 +110,14 @@ t_var	**ft_init_env(char **env)
 
 	i = 0;
 	list_var = NULL;
+	list_var[0] = NULL;
+	
+	//printf("%s2\n", list_var[0]->name);
 	while (env[i])
 	{
-		printf("ft_init_env\n");
 		name = ft_get_name(env[i]);
 		value = ft_get_value(env[i]);
+		//cuando se carga list_var??
 		ft_add_var(&list_var, name, value);
 		free(name);
 		free(value);

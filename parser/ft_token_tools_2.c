@@ -6,7 +6,7 @@
 /*   By: druiz-ca <druiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 12:26:17 by sternero          #+#    #+#             */
-/*   Updated: 2024/11/02 13:25:00 by druiz-ca         ###   ########.fr       */
+/*   Updated: 2024/11/03 14:40:11 by druiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ char	*ft_get_name(char *str)
 
 char	*ft_get_value(char *str)
 {
-	printf("ft_get_value\n");
 	int		i;
 	int		j;
 	char	*value;
@@ -60,6 +59,7 @@ char	*ft_get_value(char *str)
 	while (str[i])
 		value[j++] = str[i++];
 	value[j] = '\0';
+	printf("ft_get_value\n");
 	return (value);
 }
 
@@ -79,28 +79,25 @@ void	ft_add_var(t_var ***list_var, char *str, char *value)
 {
 	int		i;
 	t_var	**new_list_var;
-
-	t_var **vars = *list_var;
+	
 	i = 0;
-
-    while (vars[i]) 
+	if (*list_var != NULL)
 	{
-        printf("  Name: %s\n", vars[i]->name);
-        printf("  Value: %s\n", vars[i]->value);
-        i++;
-    }
-	printf("ft_add_var\n");
-	while ((*list_var)[i])
-		i++;
-	new_list_var = (t_var **)malloc(sizeof(t_var *) * (2 + 2));
+		while ((*list_var)[i])
+			i++;
+	}
+	new_list_var = (t_var **)malloc(sizeof(t_var *) * (i + 2));
 	if (!new_list_var)
 		return ;
 	i = 0;
-	while ((*list_var)[i])
+	printf("%s\n", (*list_var)[i]);
+	while ((*list_var)[i]) // esto da seg fault
 	{
+		printf("ft_add_var %i\n", i);
 		new_list_var[i] = (*list_var)[i];
 		i++;
 	}
+	printf("ft_add_var\n");
 	new_list_var[i] = (t_var *)malloc(sizeof(t_var));
 	if (!new_list_var[i])
 		return ;
@@ -109,7 +106,8 @@ void	ft_add_var(t_var ***list_var, char *str, char *value)
 	new_list_var[i + 1] = NULL;
 	free(*list_var);
 	*list_var = new_list_var; 
-}
+} 
+
 
 /* La función ft_add_var añade una nueva variable de entorno a la lista de
    variables de entorno. Toma tres argumentos: un puntero a un puntero a una

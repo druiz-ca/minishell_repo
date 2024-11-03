@@ -6,7 +6,7 @@
 /*   By: druiz-ca <druiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 11:50:34 by sternero          #+#    #+#             */
-/*   Updated: 2024/11/02 11:21:30 by druiz-ca         ###   ########.fr       */
+/*   Updated: 2024/11/03 13:55:32 by druiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,13 @@ int     ft_len_word(char *str, int i)
         len++;
         i++;
     }
+        printf("ft_len_word %i\n", i);
+
     return (len);
 }
 
 char    *ft_process_word(char *str, int *i)
 {
-    printf("ft_process_word\n");
     char *word;
     int len;
     int j;

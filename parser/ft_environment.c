@@ -6,7 +6,7 @@
 /*   By: druiz-ca <druiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 17:18:19 by sternero          #+#    #+#             */
-/*   Updated: 2024/11/02 11:20:39 by druiz-ca         ###   ########.fr       */
+/*   Updated: 2024/11/03 12:33:46 by druiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,22 +68,21 @@ static void	ft_do_cmd(char **str, t_var **list_var, char *status)
 
 void	ft_restore_dolar(char **dolar)
 {
-	printf("ft_restore_dolar\n");
 	int		i;
 	int		j;
 
 	i = 0;
-	while ((*dolar)[i])
-	{
+	//while ((*dolar)[i])
+	//{
 		j = 0;
-		while ((dolar)[i][j])
+		while (dolar[i][j])
 		{
-			if ((dolar)[i][j] == 1)
+			if (dolar[i][j] == 1)
 				dolar[i][j] = '$';
 			j++;
 		}	
-		i++;
-	}
+		//i++;
+	//}
 
 }
 

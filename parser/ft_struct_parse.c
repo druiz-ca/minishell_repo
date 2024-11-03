@@ -6,34 +6,35 @@
 /*   By: druiz-ca <druiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 12:54:44 by sternero          #+#    #+#             */
-/*   Updated: 2024/11/02 12:12:57 by druiz-ca         ###   ########.fr       */
+/*   Updated: 2024/11/03 14:12:33 by druiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-/* void    ft_parse_input(t_minishell *minishell)
+void    ft_parse_input2(t_minishell *minishell)
 {
     printf("ft_parse_input\n");
     char    *input;
     char    **tokens;
     int     i;
 
-    minishell = minishell;
     input = readline(SHELL_PROMPT);
     if (!input)
         return ;
     add_history(input);
     tokens = ft_top_split(input);
     i = 0;
+    printf("ft_parse_input2 \n");
     while (tokens[i])
     {
         printf("Token %d: %s\n", i, tokens[i]);
         i++;
     }
-    free(input);
-    free(tokens);
-} */
+    minishell->prompt = input;
+/*     free(input);
+    free(tokens); */
+}
 
 void    ft_parse_command(char **cmd_break, int *i, t_cmd *struct_command)
 {

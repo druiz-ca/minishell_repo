@@ -6,7 +6,7 @@
 /*   By: druiz-ca <druiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:29:28 by sternero          #+#    #+#             */
-/*   Updated: 2024/11/02 12:44:15 by druiz-ca         ###   ########.fr       */
+/*   Updated: 2024/11/03 10:33:43 by druiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,11 @@ char    **ft_copy_mtx(char **mtx)
             ft_remove_matrix(out);
             return (NULL);
         }
-        printf("ft_copy_mtx\n");
         i++;
     }
     out[i] = NULL;
-    printf("%s\n", out[1]);
+        printf("ft_copy_mtx\n");
+    printf("%s\n", out[0]);
     return (out);
 }
 

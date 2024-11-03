@@ -6,7 +6,7 @@
 /*   By: druiz-ca <druiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 15:22:38 by sternero          #+#    #+#             */
-/*   Updated: 2024/11/02 13:52:13 by druiz-ca         ###   ########.fr       */
+/*   Updated: 2024/11/03 14:10:46 by druiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,16 @@ void    ft_parse_input(t_minishell *minishell)
 	if (minishell->prompt[ft_strlen(minishell->prompt) - 1] == ' ')
 		minishell->full_cmd = ft_remove_last(minishell->full_cmd);
 	printf("ft_parse_input\n");
-	printf("%s1", minishell->env[0]);
-	//ft_env_var(minishell, minishell->env); <-- ESTA ES LA LINEA ORIGINAL
-	//TIENE QUE ENVIAR LA VARIABLE DE ENTORNO O EL COMANDO?
-	ft_env_var(minishell, minishell->full_cmd); // <-- ESTA ES LA LINEA MODIFICADA
+	ft_env_var(minishell, minishell->env);
 }
 
 void    ft_action_parse(t_minishell *minishell, char *line)
 {
+	printf("ft_action parse %s %s\n", minishell->prompt, line);
 	minishell->prompt = line;
 	minishell->error_parse = 0;
 	ft_spc_remove(minishell->prompt);
-	if (ft_check_cmd(minishell))
+	if (ft_check_cmd(minishell))//no va )si pruebo "lñ" no me da error
 	{
 		ft_printf("Error: invalid command\n");
 		minishell->error_parse = EXIT_FAILURE;
@@ -51,7 +49,6 @@ void    ft_action_parse(t_minishell *minishell, char *line)
 	}
 	ft_parse_input(minishell);
 	minishell->split_cmd = ft_copy_mtx(minishell->split_cmd);
-	printf("ft_action_parse\n");
 	//ft_free_vector(minishell->full_cmd);
 	//ft_free_vector(minishell->split_cmd);
 }
@@ -81,39 +78,57 @@ void    ft_spc_remove_plus(char **vector, char *spaces)
 	vector[ft_vector_len(vector) - 1] = tmp;
 }
 
-int		main(int argc, char *arbv[])
+
+int		main(int argc, char *arbv[], char **envp) // el main debe recibir las envp!!
 {
 	t_minishell minishell;
+	int i;
 	/* COMPROBAR/CREAR funcion que almacene las variables de entorno
 	en la estructura t_env y cambiar en al ft_parse el parámetro minishell->full_cmd
 	que envia x el de t_env */
 	
-/* 	minishell.prompt = NULL;
+	minishell.prompt = NULL;
 	minishell.full_cmd = NULL;
 	minishell.split_cmd = NULL;
 	minishell.error_parse = 0;
 	minishell.env = NULL;
-	minishell.env = ft_copy_mtx(arbv); */
+	i = 0;
+	while (envp[i] != NULL)
+		i++;
+	minishell.env = ft_calloc(i + 1, sizeof(char *));
+	i = 0;
+	while (envp[i] != NULL)
+	{
+		minishell.env[i] = ft_strdup(envp[i]);
+		i++;
+	}
 	if (argc == 1)
 	{
 		while (1)
 		{
-			minishell.prompt = readline("minishell$ ");
+			ft_parse_input2(&minishell);
+			printf("main %s\n", minishell.prompt);
+			//minishell.prompt = readline("minishell$ ");
 			if (!minishell.prompt)
 				break ;
 			if (ft_strlen(minishell.prompt) > 0)
 			{
 				add_history(minishell.prompt);
 				ft_action_parse(&minishell, minishell.prompt);
+				printf("aqui2\n");
+				pause();
 			}
 			free(minishell.prompt);
+			ft_action_parse(&minishell, minishell.prompt);
+			if (minishell.error_parse == 0)
+				execute(minishell.cmds, &minishell);
 		}
 	}
 	else
 	{
 		ft_action_parse(&minishell, arbv[1]);
 	}
-	ft_free_vector(minishell.env);
+	//ft_free_vector(minishell.env);
 	return (0);
 }
 
